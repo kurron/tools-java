@@ -13,17 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.kurron.feedback.feedback.exceptions;
+package org.kurron.feedback.exceptions;
 
-import org.kurron.feedback.feedback.FeedbackContext;
+import org.kurron.feedback.FeedbackContext;
 import org.springframework.http.HttpStatus;
 
 /**
- * Signals that a payload is too large and a 413 (payload too large) should be returned to the client.
+ * Signals that a precondition was not met (typically a missing header that is required), and a 412 (precondition failed) should be
+ * returned to the client.
  */
-public class PayloadTooLargeError extends AbstractError
+public class PreconditionFailedError extends AbstractError
 {
-    public PayloadTooLargeError( final FeedbackContext context, final Object... arguments )
+    public PreconditionFailedError( final FeedbackContext context, final Object... arguments )
     {
         super( context, arguments );
     }
@@ -31,12 +32,12 @@ public class PayloadTooLargeError extends AbstractError
     @Override
     public HttpStatus getHttpStatus()
     {
-        return HttpStatus.PAYLOAD_TOO_LARGE;
+        return HttpStatus.PRECONDITION_FAILED;
     }
 
     @Override
     public String getDeveloperMessage()
     {
-        return "The payload is too large, try sending something smaller next time";
+        return "Did you forget to set a required header?";
     }
 }

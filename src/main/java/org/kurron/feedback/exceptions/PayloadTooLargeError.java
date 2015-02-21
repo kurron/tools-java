@@ -13,17 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.kurron.feedback.feedback.exceptions;
+package org.kurron.feedback.exceptions;
 
-import org.kurron.feedback.feedback.FeedbackContext;
+import org.kurron.feedback.FeedbackContext;
 import org.springframework.http.HttpStatus;
 
 /**
- * Signals that a generic server error occurred, and a 500 (internal server error) should be returned to the client.
+ * Signals that a payload is too large and a 413 (payload too large) should be returned to the client.
  */
-public class InternalServerError extends AbstractError
+public class PayloadTooLargeError extends AbstractError
 {
-    public InternalServerError( final FeedbackContext context, final Object... arguments )
+    public PayloadTooLargeError( final FeedbackContext context, final Object... arguments )
     {
         super( context, arguments );
     }
@@ -31,12 +31,12 @@ public class InternalServerError extends AbstractError
     @Override
     public HttpStatus getHttpStatus()
     {
-        return HttpStatus.INTERNAL_SERVER_ERROR;
+        return HttpStatus.PAYLOAD_TOO_LARGE;
     }
 
     @Override
     public String getDeveloperMessage()
     {
-        return "Something bad happened...";
+        return "The payload is too large, try sending something smaller next time";
     }
 }

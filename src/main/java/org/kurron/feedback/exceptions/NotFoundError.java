@@ -13,31 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.kurron.feedback.feedback;
+package org.kurron.feedback.exceptions;
+
+import org.kurron.feedback.FeedbackContext;
+import org.springframework.http.HttpStatus;
 
 /**
- * Convenience base class for objects that wish to have a feedback provider injected into them.
+ * Signals that a resource was not found, and a 404 (not found) HTTP code should be returned to the client.
  */
-public class AbstractFeedbackAware implements FeedbackAware
+public class NotFoundError extends AbstractError
 {
-    /**
-     * The provider to use.
-     */
-    private FeedbackProvider theFeedbackProvider;
-
-    protected AbstractFeedbackAware() {
-        theFeedbackProvider = new NullFeedbackProvider();
+    public NotFoundError( final FeedbackContext context, final Object... arguments )
+    {
+        super( context, arguments );
     }
 
     @Override
-    public FeedbackProvider getFeedbackProvider()
+    public HttpStatus getHttpStatus()
     {
-        return theFeedbackProvider;
+        return HttpStatus.NOT_FOUND;
     }
 
     @Override
-    public void setFeedbackProvider( final FeedbackProvider aProvider )
+    public String getDeveloperMessage()
     {
-        theFeedbackProvider = aProvider;
+        return "The resource does not exist in the system";
     }
 }

@@ -13,16 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.kurron.feedback.feedback;
+package org.kurron.feedback;
 
 /**
- * Intended primarily for logging feedback, this enumerates the various levels that feedback can be provided.
+ * Interface Injection: any bean implementing this interface is indicating that it wants a feedback provider injected into it.
  */
-public enum FeedbackLevel
+public interface FeedbackAware
 {
-    TRACE,
-    DEBUG,
-    INFO,
-    WARN,
-    ERROR
+    /**
+     * The provider the instance should use.
+     * @return the provider instance.
+     */
+    FeedbackProvider getFeedbackProvider();
+
+    /**
+     * Specifies the provider this instance should use.
+     * @param aProvider the provider to use.
+     */
+    void setFeedbackProvider( FeedbackProvider aProvider );
 }

@@ -13,10 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package org.kurron.feedback;
 
 /**
- * This package contains objects useful in providing feedback to API clients as well as operations.  The idea is
- * provide a general contract for sending feedback to interested parties and let service providers handle the
- * details of transporting the feedback.
+ * Null Object Pattern: a no-op implementation of the feedback provider interface. Typically used only in testing
+ * environments where real providers are not desired or a fallback is needed.
  */
-package org.kurron.feedback.feedback;
+public class NullFeedbackProvider implements FeedbackProvider
+{
+    @Override
+    public void sendFeedback( final FeedbackContext context, final Object... arguments )
+    {
+        // do nothing
+    }
+
+    @Override
+    public void sendFeedback( final FeedbackContext context, final Throwable error )
+    {
+        // do nothing
+    }
+}

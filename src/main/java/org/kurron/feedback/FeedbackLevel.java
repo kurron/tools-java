@@ -13,15 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.kurron.feedback.feedback;
+package org.kurron.feedback;
 
 /**
- * Describes the intended set of "eye balls" that a feedback message is intended for. Adds another filtering dimension.
+ * Intended primarily for logging feedback, this enumerates the various levels that feedback can be provided.
  */
-public enum Audience
+public enum FeedbackLevel
 {
-    OPERATIONS,
-    SUPPORT,
-    QA,
-    DEVELOPMENT
+    TRACE,
+    DEBUG,
+    INFO,
+    WARN,
+    ERROR
 }

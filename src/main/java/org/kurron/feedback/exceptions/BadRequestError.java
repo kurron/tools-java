@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.kurron.feedback.feedback.exceptions;
+package org.kurron.feedback.exceptions;
 
-import org.kurron.feedback.feedback.FeedbackContext;
+import org.kurron.feedback.FeedbackContext;
 import org.springframework.http.HttpStatus;
 
 /**

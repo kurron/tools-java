@@ -13,23 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.kurron.feedback.feedback;
 
 /**
- * Null Object Pattern: a no-op implementation of the feedback provider interface. Typically used only in testing
- * environments where real providers are not desired or a fallback is needed.
+ * Contains basic error classes based on HTTP status codes, which can be extended and customized as needed.
  */
-public class NullFeedbackProvider implements FeedbackProvider
-{
-    @Override
-    public void sendFeedback( final FeedbackContext context, final Object... arguments )
-    {
-        // do nothing
-    }
-
-    @Override
-    public void sendFeedback( final FeedbackContext context, final Throwable error )
-    {
-        // do nothing
-    }
-}
+package org.kurron.feedback.exceptions;
