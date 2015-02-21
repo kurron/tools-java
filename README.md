@@ -1,2 +1,1 @@
-# tools-java
-Library of small objects that can be useful in a variety of JVM environments
+# TODO: Add a real README, including some example usages (e.g. post process autowiring, etc.).
