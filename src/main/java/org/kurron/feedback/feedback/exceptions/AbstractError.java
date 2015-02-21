@@ -20,7 +20,7 @@ import org.slf4j.helpers.MessageFormatter;
 import org.springframework.http.HttpStatus;
 
 /**
- * A common base class for all Magni errors.
+ * A common base class for all application errors.
  */
 public abstract class AbstractError extends RuntimeException
 {

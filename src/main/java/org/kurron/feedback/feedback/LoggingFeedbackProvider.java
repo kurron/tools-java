@@ -51,12 +51,12 @@ public class LoggingFeedbackProvider implements FeedbackProvider
     private final Logger theLogger;
 
     /**
-     * Identifies the 'type' of application this is, typically using its project codename. For example, zisa, magni or thor.
+     * Identifies the 'type' of application this is, typically using its project codename.
      */
     private final String theServiceCode;
 
     /**
-     * Identifies the instance of a particular 'type' of application (the 3rd instance of magni), typically using its process id.
+     * Identifies the instance of a particular 'type' of application, typically using its process id.
      */
     private final String theServiceInstance;
 
