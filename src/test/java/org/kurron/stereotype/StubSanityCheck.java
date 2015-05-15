@@ -30,12 +30,16 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ActiveProfiles( "use-stubs" )
 @ContextConfiguration( classes = SpringContext.class )
 public class StubSanityCheck {
+
+    /**
+     * Subject under test.
+     */
     @Autowired
-    ServiceContract sut;
+    private ServiceContract sut;
 
     @Test
     public void sanityCheck() throws Exception {
         assert null != sut;
-        assert sut.hello().equalsIgnoreCase( "Hello from the stubbed service" );
+        assert "Hello from the stubbed service".equalsIgnoreCase( sut.hello() );
     }
 }

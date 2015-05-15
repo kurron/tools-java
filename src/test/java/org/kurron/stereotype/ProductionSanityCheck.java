@@ -31,13 +31,17 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ActiveProfiles( "use-stubs" )
 @ContextConfiguration( classes = SpringContext.class )
 public class ProductionSanityCheck {
+
+    /**
+     * Subject under test.
+     */
     @Autowired
     @Qualifier( "production" )
-    ServiceContract sut;
+    private ServiceContract sut;
 
     @Test
     public void sanityCheck() throws Exception {
         assert null != sut;
-        assert sut.hello().equalsIgnoreCase( "Hello from the production service" );
+        assert "Hello from the production service".equalsIgnoreCase( sut.hello() );
     }
 }
