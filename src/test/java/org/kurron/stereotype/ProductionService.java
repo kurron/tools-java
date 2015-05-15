@@ -16,14 +16,13 @@
 
 package org.kurron.stereotype;
 
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-
 /**
- * Common Spring configuration.
+ * The stubbed implementation of the contract.
  */
-@Configuration
-@ComponentScan
-public class SpringContext {
-
+@OutboundGateway
+public class ProductionService implements ServiceContract {
+    @Override
+    public String hello() {
+        return "Hello from the production service";
+    }
 }
