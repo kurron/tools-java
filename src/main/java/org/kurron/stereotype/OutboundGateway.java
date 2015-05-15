@@ -21,6 +21,8 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 /**
@@ -30,12 +32,15 @@ import org.springframework.stereotype.Service;
  * or the file system.
  *
  * <p>This annotation serves as a specialization of {@link org.springframework.stereotype.Component @Component},
- * allowing for implementation classes to be autodetected through classpath scanning.
+ * allowing for implementation classes to be autodetected through classpath scanning. This annotation also
+ * qualifies the gateway with the label of  <em>production</em>.  This allows you to select the production
+ * gateways for your contract tests.</p>
  */
 @Target( {ElementType.TYPE} )
 @Retention( RetentionPolicy.RUNTIME )
 @Documented
 @Service
+@Qualifier( "production" )
 public @interface OutboundGateway {
 
     /**

@@ -16,13 +16,10 @@
 
 package org.kurron.stereotype;
 
-import org.springframework.beans.factory.annotation.Qualifier;
-
 /**
  * The stubbed implementation of the contract.
  */
 @OutboundGateway
-@Qualifier( "production" )
 public class ProductionService implements ServiceContract {
     @Override
     public String hello() {
