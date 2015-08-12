@@ -14,7 +14,17 @@
  * limitations under the License.
  */
 
-group = 'org.kurron.example'
+buildscript {
+    repositories {
+        jcenter()
+    }
+}
+
+plugins {
+    id "com.jfrog.bintray" version "1.2"
+}
+
+group = 'org.kurron'
 
 
 apply plugin: 'build-announcements'
@@ -24,9 +34,10 @@ apply from: "$rootDir/gradle/version.gradle"
 apply from: "$rootDir/gradle/java.gradle"
 apply from: "$rootDir/gradle/boot.gradle"
 apply from: "$rootDir/gradle/checkstyle.gradle"
-apply from: "$rootDir/gradle/maven-publish.gradle"
 apply from: "$rootDir/gradle/dependency-exclusions.gradle"
 apply from: "$rootDir/gradle/version-conflict-detection.gradle"
+apply from: "$rootDir/gradle/maven-publish.gradle"
+apply from: "$rootDir/gradle/bintray.gradle"
 
 defaultTasks += ['clean', 'build']
 
