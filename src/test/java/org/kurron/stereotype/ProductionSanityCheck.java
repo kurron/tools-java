@@ -16,8 +16,12 @@
 
 package org.kurron.stereotype;
 
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ActiveProfiles;
@@ -32,6 +36,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration( classes = SpringContext.class )
 public class ProductionSanityCheck {
 
+    private static final Logger log =  org.slf4j.LoggerFactory.getLogger( ProductionSanityCheck.class );
+
     /**
      * Subject under test.
      */
@@ -39,9 +45,28 @@ public class ProductionSanityCheck {
     @Qualifier( "production" )
     private ServiceContract sut;
 
+    @BeforeClass
+    public static void before() {
+        MDC.put( "message-code", Integer.toString( 1999 ) );
+        MDC.put( "service-code", "Thor" );
+        MDC.put( "service-instance", Integer.toString( 1995 ) );
+        MDC.put( "realm", "Nashua Endurance Lab" );
+        MDC.put( "correlation-id", "BEEFBABE" );
+    }
+
+    @AfterClass
+    public static void after() {
+        MDC.clear();
+    }
+
     @Test
     public void sanityCheck() throws Exception {
+
+        log.debug( "Ron was here." );
+
         assert null != sut;
         assert "Hello from the production service".equalsIgnoreCase( sut.hello() );
+
+
     }
 }
