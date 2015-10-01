@@ -40,7 +40,7 @@ apply from: "$rootDir/gradle/maven-publish.gradle"
 apply from: "$rootDir/gradle/bintray.gradle"
 
 dependencies {
-    compile "net.logstash.logback:logstash-logback-encoder:${logstashLogbackVersion}"
+    runtime "net.logstash.logback:logstash-logback-encoder:${logstashLogbackVersion}"
 }
 
 defaultTasks += ['clean', 'build']
