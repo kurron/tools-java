@@ -63,7 +63,14 @@ public class ProductionSanityCheck {
     public void sanityCheck() throws Exception {
 
         log.debug( "Ron was here." );
-
+        try {
+            throw new RuntimeException( "Forced to fail." );
+        }
+        catch ( Exception e ) {
+            log.error("Logan was here.");
+            // this form won't log for some reason
+            log.error( "Logan was here.", new RuntimeException( "Forced to fail." ) );
+        }
         assert null != sut;
         assert "Hello from the production service".equalsIgnoreCase( sut.hello() );
 

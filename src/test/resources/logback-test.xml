@@ -44,7 +44,7 @@
 
     <logger name="org.kurron" level="ALL"/>
 
-    <root level="INFO">
+    <root level="WARN">
         <appender-ref ref="CONSOLE"/>
     </root>
 </configuration>
