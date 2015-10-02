@@ -36,6 +36,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration( classes = SpringContext.class )
 public class ProductionSanityCheck {
 
+    /**
+     * Logger to exercise.
+     */
     private static final Logger log =  org.slf4j.LoggerFactory.getLogger( ProductionSanityCheck.class );
 
     /**
@@ -62,18 +65,22 @@ public class ProductionSanityCheck {
     @Test
     public void sanityCheck() throws Exception {
 
+        assert null != sut;
+        assert "Hello from the production service".equalsIgnoreCase( sut.hello() );
+    }
+
+    @Test
+    public void jsonLogging() throws Exception {
+
+        // Silly test just to see how the logged JSON is formed
         log.debug( "Ron was here." );
         try {
             throw new RuntimeException( "Forced to fail." );
         }
-        catch ( Exception e ) {
-            log.error("Logan was here.");
+        catch ( final RuntimeException e ) {
+            log.error( "Logan was here." );
             // this form won't log for some reason
             log.error( "Logan was here.", new RuntimeException( "Forced to fail." ) );
         }
-        assert null != sut;
-        assert "Hello from the production service".equalsIgnoreCase( sut.hello() );
-
-
     }
 }

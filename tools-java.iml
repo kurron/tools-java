@@ -53,9 +53,9 @@
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.4.6" level="project" />
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.4.0" level="project" />
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.4.6" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: net.logstash.logback:logstash-logback-encoder:4.5.1" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.5.4" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.5.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.5.4" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: net.logstash.logback:logstash-logback-encoder:4.5.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.5.4" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.5.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.5.4" level="project" />
   </component>
 </module>

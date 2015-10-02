@@ -40,7 +40,7 @@ apply from: "$rootDir/gradle/maven-publish.gradle"
 apply from: "$rootDir/gradle/bintray.gradle"
 
 dependencies {
-    runtime "net.logstash.logback:logstash-logback-encoder:${logstashLogbackVersion}"
+    testRuntime "net.logstash.logback:logstash-logback-encoder:${logstashLogbackVersion}"
 //  runtime "org.logback-extensions:logback-ext-loggly:${logbackLogglyVersion}"
 }
 

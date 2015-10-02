@@ -23,4 +23,5 @@
     <suppress files="Audience.java" checks="JavadocVariableCheck"/>
     <suppress files="FeedbackLevel.java" checks="JavadocVariableCheck"/>
     <suppress files="LoggingFeedbackProvider.java" checks="CyclomaticComplexityCheck"/>
+    <suppress files="ProductionSanityCheck.java" checks="IllegalCatchCheck"/>
 </suppressions>
