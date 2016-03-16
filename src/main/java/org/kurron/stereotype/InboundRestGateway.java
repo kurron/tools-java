@@ -16,10 +16,14 @@
 
 package org.kurron.stereotype;
 
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.lang.annotation.*;
 
 /**
  * Indicates that an annotated class is a "inbound gateway", made popular by Martin Fowler.
