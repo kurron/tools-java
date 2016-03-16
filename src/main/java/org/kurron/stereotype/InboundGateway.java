@@ -17,17 +17,16 @@
 package org.kurron.stereotype;
 
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import java.lang.annotation.*;
 
 /**
  * Indicates that an annotated class is a "inbound gateway", made popular by Martin Fowler.
- * In our layering, an inbound gateway is any component that moves data from outside of
- * the process into the process. This form of inbound gateway specializes in processing
- * REST requests.
+ * In our layering, an inbound gateway is any component that moves data from outside the
+ * process to inside the process.  Examples, include AMQP messaging listeners or a web socket listener.
  *
- * <p>This annotation serves as a specialization of {@link org.springframework.web.bind.annotation.RestController @RestController},
+ * <p>This annotation serves as a specialization of {@link org.springframework.stereotype.Component @Component},
  * allowing for implementation classes to be autodetected through classpath scanning. This annotation also
  * qualifies the gateway with the label of  <em>production</em>.  This allows you to select the production
  * gateways for your contract tests.</p>
@@ -35,10 +34,9 @@ import java.lang.annotation.*;
 @Target( {ElementType.TYPE} )
 @Retention( RetentionPolicy.RUNTIME )
 @Documented
-@RestController
+@Service
 @Qualifier( "production" )
-public @interface InboundRestGateway
-{
+public @interface InboundGateway {
 
     /**
      * The value may indicate a suggestion for a logical component name,
