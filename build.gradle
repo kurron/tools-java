@@ -54,6 +54,7 @@ defaultTasks += ['clean', 'build']
 
 if ( 'true' == publishArtifacts ) {
     defaultTasks << 'publish'
+    defaultTasks << 'bintrayUpload'
 }
 else {
     defaultTasks << 'publishToMavenLocal'
