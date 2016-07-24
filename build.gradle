@@ -16,7 +16,9 @@
 
 buildscript {
     repositories {
-        jcenter()
+        maven {
+            url = artifactory
+        }
     }
 
     dependencies {
