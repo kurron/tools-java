@@ -25,13 +25,13 @@ bintray {
         vcsUrl = 'https://github.com/kurron/tools-java.git'
         labels = ['java', 'spring', 'tools']
         publicDownloadNumbers = true
-        attributes= ['a': ['ay1', 'ay2'], 'b': ['bee'], c: 'cee']
         version {
             name = project.version
-            desc = 'Java-based utilities and enhancements'
             released  = new Date()
-            vcsTag = 'master'
-            attributes = ['key': 'value']
         }
     }
+}
+
+if ( 'true' == publishArtifacts ) {
+    defaultTasks << 'bintrayUpload'
 }
