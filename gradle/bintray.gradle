@@ -20,7 +20,7 @@ bintray {
     publications = ['mavenPublish']
     pkg {
         repo = 'maven'
-        name = "${project.name}"
+        name = 'java-tools'
         licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/kurron/tools-java.git'
         labels = ['java', 'spring', 'tools']
@@ -30,7 +30,7 @@ bintray {
             name = project.version
             desc = 'Java-based utilities and enhancements'
             released  = new Date()
-            vcsTag = "${project.branch}"
+            vcsTag = 'master'
             attributes = ['key': 'value']
         }
     }
