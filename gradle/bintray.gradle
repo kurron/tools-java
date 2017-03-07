@@ -31,7 +31,3 @@ bintray {
         }
     }
 }
-
-if ( 'true' == publishArtifacts ) {
-    defaultTasks << 'bintrayUpload'
-}
