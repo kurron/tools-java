@@ -18,7 +18,7 @@ package org.kurron.categories;
 
 /**
  * Tests that are marked like this are testing the service from the viewpoint of the end user.  Normally, this means
- * that Cucumber JVM is controlling the tests..  In terms of Spring, we need to fully stand up the service and be
+ * that Cucumber JVM is controlling the tests.  In terms of Spring, we need to fully stand up the service and be
  * as close to production as reasonable.  Outbound integration points may have to be stubbed, depending on stability
  * of the end point and its cost.
  */
