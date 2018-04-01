@@ -15,7 +15,5 @@
  */
 
 repositories {
-    maven {
-        url = artifactory
-    }
+    jcenter()
 }
